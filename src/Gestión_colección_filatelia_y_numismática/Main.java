@@ -79,11 +79,11 @@ public class Main {
 
                             System.out.print("\nDime el precio de la moneda: ");
                             int precio = scanner.nextInt();
-                            if (valor <= 0){
+                            if (precio <= 0){
                                 do {
                                     System.out.print("\nEl valor debe ser un valor positivo.\nDime el valor de la moneda: ");
                                     annus = scanner.nextInt();
-                                }while(valor<=0);
+                                }while(precio<=0);
                             }
 
 
@@ -92,7 +92,7 @@ public class Main {
                             int rareza = scanner.nextInt();
                             do {
                                 if(rareza < 1 || rareza > 10){
-                                    System.out.print("\nLa rareza debe estar entre 1 y 10. Dime la rareza de la moneda (1-10): ");
+                                    System.out.print("\nLa rareza debe estar entre 1 y 10.\nDime la rareza de la moneda (1-10): ");
                                     rareza = scanner.nextInt();
                                 }
                             } while (rareza < 1 || rareza > 10);
@@ -104,13 +104,23 @@ public class Main {
 
                             System.out.print("\nDime el peso de la moneda (en gramos): ");
                             int peso = scanner.nextInt();
+                            do{
+                                if(peso<=0){
+                                    System.out.print("\nEl peso debe ser un valor positivo.\nDime el peso de la moneda (en gramos): ");
+                                    peso = scanner.nextInt();
+                                }
+                            }while(peso<=0);
 
 
 
                             System.out.print("\nDime el diámetro de la moneda (en mm): ");
                             int diametro = scanner.nextInt();
-
-
+                            do{
+                                if(diametro<=0){
+                                    System.out.print("\nEl diámetro debe ser un valor positivo.\nDime el diámetro de la moneda (en mm): ");
+                                    diametro = scanner.nextInt();
+                                }
+                            }while(diametro<=0);
 
                             System.out.print("\nDime el grosor de la moneda (en mm): ");
                             int grosor = scanner.nextInt();
@@ -130,7 +140,8 @@ public class Main {
                                 }
                             } while (!estadoConservacionStr.equals("G") && !estadoConservacionStr.equals("VG") && !estadoConservacionStr.equals("F") && !estadoConservacionStr.equals("VF") && !estadoConservacionStr.equals("XF") && !estadoConservacionStr.equals("AU") && !estadoConservacionStr.equals("UNC"));
 
-                            // public Moneda(String pais, String autoridadGobernante, String unidadMonetaria, int annus, int valor, int precio, int rareza, String composicion, int peso, int diametro, int grosor, EnumEstadoConservacionMoneda estadoConservacion)
+                            Moneda moneda = new Moneda(pais, autoridadGobernante, unidadMonetaria, annus, valor, precio, rareza, composicion, peso, diametro, grosor, EnumEstadoConservacionMoneda.valueOf(estadoConservacionStr));
+
                         }catch(Exception e){
                             System.out.println("Ha ingresado un parámetro incorrecto.\nVolviendo al menú principal ");
                             break;
