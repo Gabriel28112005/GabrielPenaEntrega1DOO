@@ -40,14 +40,15 @@ public class Main {
                     if(respuesta == 1){
 
                         try{
+
                             System.out.print("\nDime el país de la moneda: ");
-                            String pais = scanner.next();
+                            String pais = scanner.nextLine();
 
                             System.out.print("\nDime la autoridad gobernante de la moneda: ");
-                            String autoridadGobernante = scanner.next();
+                            String autoridadGobernante = scanner.nextLine();
 
                             System.out.print("\nDime la unidad monetaria de la moneda: ");
-                            String unidadMonetaria = scanner.next();
+                            String unidadMonetaria = scanner.nextLine();
 
                             System.out.print("\nDime el año de la moneda: ");
                             int annus = scanner.nextInt();
@@ -86,7 +87,7 @@ public class Main {
                             }
 
                             System.out.print("\nDime la composición de la moneda: ");
-                            String composicion = scanner.next();
+                            String composicion = scanner.nextLine();
 
                             System.out.print("\nDime el peso de la moneda (en gramos): ");
                             int peso = scanner.nextInt();
@@ -116,7 +117,7 @@ public class Main {
                             }
 
                             System.out.print("\nDime el estado de conservación de la moneda (G, VG, F, VF, XF, AU, UNC): ");
-                            String estadoConservacionStr = scanner.next().toUpperCase();
+                            String estadoConservacionStr = scanner.nextLine();
                             if(!estadoConservacionStr.equals("G") && !estadoConservacionStr.equals("VG") && !estadoConservacionStr.equals("F") && !estadoConservacionStr.equals("VF") && !estadoConservacionStr.equals("XF") && !estadoConservacionStr.equals("AU") && !estadoConservacionStr.equals("UNC")){
                                 do{
                                     System.out.print("\nEl estado de conservación debe ser uno de los siguientes: G, VG, F, VF, XF, AU, UNC.\nDime el estado de conservación de la moneda: ");
@@ -129,7 +130,7 @@ public class Main {
 
                         }catch(Exception e){
                             System.out.println("Ha ingresado un parámetro incorrecto.\nVolviendo al menú principal ");
-                            break;
+
                         }
 
                     } else if(respuesta == 2){
@@ -252,7 +253,7 @@ public class Main {
 
                     } else if(respuesta == 0){
                         System.out.print("\nSaliendo...");
-                        break;
+
                     } else{
                         System.out.println("Opción no válida");
                     }

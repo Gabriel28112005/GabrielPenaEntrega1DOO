@@ -16,9 +16,9 @@ public class Moneda extends ElementoColeccionable {
 
     @Override
     public String toString() {
-        return "Moneda{" +
-                "pais='" + pais + '\'' +
-                ", autoridadGobernante='" + autoridadGobernante + '\'' +
+        return "Moneda{\n" +
+                "pais='" + pais + '\n' +
+                ", autoridadGobernante='" + autoridadGobernante + '\n' +
                 ", unidadMonetaria='" + unidadMonetaria + '\'' +
                 ", annus=" + annus +
                 ", valor=" + valor +
