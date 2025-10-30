@@ -25,18 +25,18 @@ public class Main {
             respuesta = scanner.nextInt();
 
 
+
+
+
+
+
+
+
+
+
+
             do{
                 try{
-                    System.out.println("Por favor, elige una opción: ");
-                    System.out.println("1. Añadir una nueva moneda");
-                    System.out.println("2. Añadir un nuevo sello");
-                    System.out.println("3. Mostrar todas las monedas");
-                    System.out.println("4. Mostar todos los sellos");
-                    System.out.println("5. Mostrar el precio total de la colección");
-                    System.out.println("6. Mostrar la rareza media de la colección");
-                    System.out.println("0. Mostrar todas las monedas");
-                    respuesta = scanner.nextInt();
-
                     if(respuesta == 1){
 
                         try{
@@ -201,42 +201,54 @@ public class Main {
                             System.out.print("\nQué imagen quieres ponerle al sello: ");
                             String imagen = scanner.next();
 
-                            System.out.print("\nDime el estado de conservación del sello (M, MNH, VLH, F, VF, XF, AU, UNC): ");
+                            System.out.print("\nDime el estado de conservación del sello (U, NSG, NF, N): ");
                             String estadoConservacionStr = scanner.next().toUpperCase();
-                            if(!estadoConservacionStr.equals("M") && !estadoConservacionStr.equals("MNH") && !estadoConservacionStr.equals("VLH") && !estadoConservacionStr.equals("F") && !estadoConservacionStr.equals("VF") && !estadoConservacionStr.equals("XF") && !estadoConservacionStr.equals("AU") && !estadoConservacionStr.equals("UNC")){
+                            if(!estadoConservacionStr.equals("U") && !estadoConservacionStr.equals("NSG") && !estadoConservacionStr.equals("NF") && !estadoConservacionStr.equals("N")){
                                 do{
-                                    System.out.print("\nEl estado de conservación debe ser uno de los siguientes: M, MNH, VLH, F, VF, XF, AU, UNC.\nDime el estado de conservación del sello: ");
+                                    System.out.print("\nEl estado de conservación debe ser uno de los siguientes: U, NSG, NF, N.\nDime el estado de conservación del sello: ");
                                     estadoConservacionStr = scanner.next().toUpperCase();
-                                } while (!estadoConservacionStr.equals("M") && !estadoConservacionStr.equals("MNH") && !estadoConservacionStr.equals("VLH") && !estadoConservacionStr.equals("F") && !estadoConservacionStr.equals("VF") && !estadoConservacionStr.equals("XF") && !estadoConservacionStr.equals("AU") && !estadoConservacionStr.equals("UNC"));
+                                } while (!estadoConservacionStr.equals("U") && !estadoConservacionStr.equals("NSG") && !estadoConservacionStr.equals("NF") && !estadoConservacionStr.equals("N"));
                             }
 
                             Sello sello = new Sello(pais, autoridadGobernante, unidadMonetaria, annus, valor, precio, rareza, altura, anchura, imagen, EnumEstadoConservacionSello.valueOf(estadoConservacionStr));
                             Coleccion.AnadirSello(sello);
 
-                            // String pais, String autoridadGobernante, String unidadMonetaria, int annus, int valor, int precio, int rareza, int altura, int anchura, String imagen, EnumEstadoConservacionSello estadoConservacion
+
 
 
                         }catch(Exception e){
                             System.out.println("Error al crear el sello: " + e.getMessage());
                         }
 
-
-
-
-
-
-
-
-
-
-
                     } else if(respuesta == 3){
+                        try{
+                            Coleccion.MostrarMonedas();
+                        }catch(Exception e){
+                            System.out.println("Error al mostrar las monedas: " + e.getMessage());
+                        }
 
                     } else if(respuesta == 4){
+                        try{
+                            Coleccion.MostrarSellos();
+                        }catch(Exception e){
+                            System.out.println("Error al mostrar los sellos: " + e.getMessage());
+                        }
 
                     } else if(respuesta == 5){
+                        try{
+                            int precioTotalColeccion = Coleccion.ObtenerPrecioTotalColeccion();
+                            System.out.println("El precio total de la colección es: " + precioTotalColeccion);
+                        }catch(Exception e){
+                            System.out.println("Error al calcular el precio total de la colección: " + e.getMessage());
+                        }
 
                     } else if(respuesta == 6){
+                        try{
+                            double mediaRarezaColeccion = Coleccion.ObtenerRarezaMediaColeccion();
+                            System.out.print("La media de la rareza de los objetos en la colección es: " + mediaRarezaColeccion);
+                        }catch(Exception e){
+                            System.out.print("Error al calcular la rareza media de la colección: " + e.getMessage());
+                        }
 
                     } else if(respuesta == 0){
                         System.out.print("\nSaliendo...");
@@ -244,6 +256,16 @@ public class Main {
                     } else{
                         System.out.println("Opción no válida");
                     }
+
+                    System.out.println("\nPor favor, elige una opción: ");
+                    System.out.println("1. Añadir una nueva moneda");
+                    System.out.println("2. Añadir un nuevo sello");
+                    System.out.println("3. Mostrar todas las monedas");
+                    System.out.println("4. Mostar todos los sellos");
+                    System.out.println("5. Mostrar el precio total de la colección");
+                    System.out.println("6. Mostrar la rareza media de la colección");
+                    System.out.println("0. Mostrar todas las monedas");
+                    respuesta = scanner.nextInt();
 
 
                 }catch(Exception e){

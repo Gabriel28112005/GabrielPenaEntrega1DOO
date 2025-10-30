@@ -16,18 +16,22 @@ public class Coleccion {
         elementos.add(sello);
     }
 
-    public static void MostrarMonedasColeccion() {
+    public static void MostrarMonedas() {
         for (ElementoColeccionable elemento : elementos) {
             if (elemento instanceof Moneda) {
                 System.out.println(elemento.toString());
+            } else{
+                System.out.print("No hay ninguna moneda en la lista.");
             }
         }
     }
 
-    public static void MostrarSellosColeccion() {
+    public static void MostrarSellos() {
         for (ElementoColeccionable elemento : elementos) {
             if (elemento instanceof Sello) {
                 System.out.println(elemento.toString());
+            } else{
+                System.out.print("No hay ningun sello en la lista");
             }
         }
     }
