@@ -15,15 +15,15 @@ public class Sello extends ElementoColeccionable{
 
     @Override
     public String toString() {
-        return "Sello{" +
-                "pais='" + pais + '\'' +
-                ", autoridadGobernante='" + autoridadGobernante + '\'' +
-                ", unidadMonetaria='" + unidadMonetaria + '\'' +
-                ", annus=" + annus +
-                ", valor=" + valor +
-                ", precio=" + precio +
-                ", rareza=" + rareza +
-                '}';
+        return "Sello{ " +
+                "pais: " + pais +
+                ", autoridadGobernante: " + autoridadGobernante+
+                ", unidadMonetaria: " + unidadMonetaria +
+                ", annus: " + annus +
+                ", valor: " + valor +
+                ", precio: " + precio +
+                ", rareza: " + rareza +
+                " }";
     }
 
 }

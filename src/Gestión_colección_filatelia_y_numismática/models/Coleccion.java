@@ -3,23 +3,21 @@ package Gestión_colección_filatelia_y_numismática.models;
 import java.util.ArrayList;
 
 public class Coleccion {
-    private static ArrayList<ElementoColeccionable> elementos;
+    private static ArrayList<ElementoColeccionable> elementos = new ArrayList<>();
 
 
 
 
-    public static void AnadirMoneda(Moneda moneda) {
-        elementos.add(moneda);
+
+    public static void anadirElemento(ElementoColeccionable elemento) {
+        elementos.add(elemento);
     }
-
-    public static void AnadirSello(Sello sello) {
-        elementos.add(sello);
-    }
-
     public static void MostrarMonedas() {
         for (ElementoColeccionable elemento : elementos) {
             if (elemento instanceof Moneda) {
-                System.out.println(elemento.toString());
+                int i=1;
+                System.out.println(i + elemento.toString());
+                i++;
             } else{
                 System.out.print("No hay ninguna moneda en la lista.");
             }
@@ -29,7 +27,9 @@ public class Coleccion {
     public static void MostrarSellos() {
         for (ElementoColeccionable elemento : elementos) {
             if (elemento instanceof Sello) {
-                System.out.println(elemento.toString());
+                int i=1;
+                System.out.println(i + elemento.toString());
+                i++;
             } else{
                 System.out.print("No hay ningun sello en la lista");
             }
