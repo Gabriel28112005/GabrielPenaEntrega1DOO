@@ -14,62 +14,13 @@ public abstract class ElementoColeccionable {
         this.rareza = rareza;
     }
 
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public String getAutoridadGobernante() {
-        return autoridadGobernante;
-    }
-
-    public void setAutoridadGobernante(String autoridadGobernante) {
-        this.autoridadGobernante = autoridadGobernante;
-    }
-
-    public String getUnidadMonetaria() {
-        return unidadMonetaria;
-    }
-
-    public void setUnidadMonetaria(String unidadMonetaria) {
-        this.unidadMonetaria = unidadMonetaria;
-    }
-
-    public int getAnnus() {
-        return annus;
-    }
-
-    public void setAnnus(int annus) {
-        this.annus = annus;
-    }
-
-    public int getValor() {
-        return valor;
-    }
-
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
-
     public int getPrecio() {
         return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
     }
 
     public int getRareza() {
         return rareza;
     }
-
-    public void setRareza(int rareza) {
-        this.rareza = rareza;
-    }
-
     //Crea todos los gets y sets de los atributos
 
 

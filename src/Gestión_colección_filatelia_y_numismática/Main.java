@@ -24,6 +24,7 @@ public class Main {
             System.out.println("0. Salir");
             respuesta = scanner.nextInt();
 
+
             do{
                 try{
                     System.out.println("Por favor, elige una opción: ");
@@ -42,17 +43,11 @@ public class Main {
                             System.out.print("\nDime el país de la moneda: ");
                             String pais = scanner.next();
 
-
-
                             System.out.print("\nDime la autoridad gobernante de la moneda: ");
                             String autoridadGobernante = scanner.next();
 
-
-
                             System.out.print("\nDime la unidad monetaria de la moneda: ");
                             String unidadMonetaria = scanner.next();
-
-
 
                             System.out.print("\nDime el año de la moneda: ");
                             int annus = scanner.nextInt();
@@ -63,10 +58,6 @@ public class Main {
                                 }while(annus<=0);
                             }
 
-
-
-
-
                             System.out.print("\nDime el valor de la moneda: ");
                             int valor = scanner.nextInt();
                             if (valor <= 0){
@@ -75,7 +66,6 @@ public class Main {
                                     annus = scanner.nextInt();
                                 }while(valor<=0);
                             }
-
 
                             System.out.print("\nDime el precio de la moneda: ");
                             int precio = scanner.nextInt();
@@ -86,61 +76,56 @@ public class Main {
                                 }while(precio<=0);
                             }
 
-
-
                             System.out.print("\nDime la rareza de la moneda (1-10): ");
                             int rareza = scanner.nextInt();
-                            do {
-                                if(rareza < 1 || rareza > 10){
+                            if(rareza <1 || rareza >10){
+                                do {
                                     System.out.print("\nLa rareza debe estar entre 1 y 10.\nDime la rareza de la moneda (1-10): ");
                                     rareza = scanner.nextInt();
-                                }
-                            } while (rareza < 1 || rareza > 10);
+                                } while (rareza < 1 || rareza > 10);
+                            }
 
                             System.out.print("\nDime la composición de la moneda: ");
                             String composicion = scanner.next();
 
-
-
                             System.out.print("\nDime el peso de la moneda (en gramos): ");
                             int peso = scanner.nextInt();
-                            do{
-                                if(peso<=0){
+                            if(peso<=0){
+                                do{
                                     System.out.print("\nEl peso debe ser un valor positivo.\nDime el peso de la moneda (en gramos): ");
                                     peso = scanner.nextInt();
-                                }
-                            }while(peso<=0);
-
-
+                                }while(peso<=0);
+                            }
 
                             System.out.print("\nDime el diámetro de la moneda (en mm): ");
                             int diametro = scanner.nextInt();
-                            do{
-                                if(diametro<=0){
+                            if(diametro<=0){
+                                do{
                                     System.out.print("\nEl diámetro debe ser un valor positivo.\nDime el diámetro de la moneda (en mm): ");
                                     diametro = scanner.nextInt();
-                                }
-                            }while(diametro<=0);
+                                }while(diametro<=0);
+                            }
 
                             System.out.print("\nDime el grosor de la moneda (en mm): ");
                             int grosor = scanner.nextInt();
-                            do{
-                                if(grosor<=0){
-                                    System.out.print("\nEl grosor debe ser un valor positivo. Dime el grosor de la moneda (en mm): ");
+                            if(grosor<=0){
+                                do{
+                                    System.out.print("\nEl grosor debe ser un valor positivo.\nDime el grosor de la moneda (en mm): ");
                                     grosor = scanner.nextInt();
-                                }
-                            }while(grosor<=0);
+                                }while(grosor<=0);
+                            }
 
                             System.out.print("\nDime el estado de conservación de la moneda (G, VG, F, VF, XF, AU, UNC): ");
                             String estadoConservacionStr = scanner.next().toUpperCase();
-                            do{
-                                if(!estadoConservacionStr.equals("G") && !estadoConservacionStr.equals("VG") && !estadoConservacionStr.equals("F") && !estadoConservacionStr.equals("VF") && !estadoConservacionStr.equals("XF") && !estadoConservacionStr.equals("AU") && !estadoConservacionStr.equals("UNC")){
+                            if(!estadoConservacionStr.equals("G") && !estadoConservacionStr.equals("VG") && !estadoConservacionStr.equals("F") && !estadoConservacionStr.equals("VF") && !estadoConservacionStr.equals("XF") && !estadoConservacionStr.equals("AU") && !estadoConservacionStr.equals("UNC")){
+                                do{
                                     System.out.print("\nEl estado de conservación debe ser uno de los siguientes: G, VG, F, VF, XF, AU, UNC.\nDime el estado de conservación de la moneda: ");
                                     estadoConservacionStr = scanner.next().toUpperCase();
-                                }
-                            } while (!estadoConservacionStr.equals("G") && !estadoConservacionStr.equals("VG") && !estadoConservacionStr.equals("F") && !estadoConservacionStr.equals("VF") && !estadoConservacionStr.equals("XF") && !estadoConservacionStr.equals("AU") && !estadoConservacionStr.equals("UNC"));
+                                } while (!estadoConservacionStr.equals("G") && !estadoConservacionStr.equals("VG") && !estadoConservacionStr.equals("F") && !estadoConservacionStr.equals("VF") && !estadoConservacionStr.equals("XF") && !estadoConservacionStr.equals("AU") && !estadoConservacionStr.equals("UNC"));
+                            }
 
                             Moneda moneda = new Moneda(pais, autoridadGobernante, unidadMonetaria, annus, valor, precio, rareza, composicion, peso, diametro, grosor, EnumEstadoConservacionMoneda.valueOf(estadoConservacionStr));
+                            Coleccion.AnadirMoneda(moneda);
 
                         }catch(Exception e){
                             System.out.println("Ha ingresado un parámetro incorrecto.\nVolviendo al menú principal ");
@@ -150,26 +135,85 @@ public class Main {
                     } else if(respuesta == 2){
 
                         try{
-                            System.out.print("\nDime el país de la moneda: ");
+                            System.out.print("\nDime el país del sello: ");
                             String pais = scanner.next();
-                            System.out.print("\nDime la autoridad gobernante de la moneda: ");
+
+                            System.out.print("\nDime la autoridad gobernante del sello: ");
                             String autoridadGobernante = scanner.next();
-                            System.out.print("\nDime la unidad monetaria de la moneda: ");
+
+                            System.out.print("\nDime la unidad monetaria del sello: ");
                             String unidadMonetaria = scanner.next();
-                            System.out.print("\nDime el año de la moneda: ");
+
+                            System.out.print("\nDime el año del sello: ");
                             int annus = scanner.nextInt();
-                            System.out.print("\nDime el valor de la moneda: ");
+                            if(annus<0){
+                                do{
+                                    System.out.print("\nEl año debe ser un valor positivo.\nDime el año del sello: ");
+                                    annus = scanner.nextInt();
+                                }while(annus<0);
+                            }
+
+                            System.out.print("\nDime el valor del sello: ");
                             int valor = scanner.nextInt();
-                            System.out.print("\nDime el precio de la moneda: ");
+                            if(valor<0){
+                                do{
+                                    System.out.print("\nEl valor debe ser un valor positivo.\nDime el valor del sello: ");
+                                    valor = scanner.nextInt();
+                                }while(valor<0);
+                            }
+
+                            System.out.print("\nDime el precio del sello: ");
                             int precio = scanner.nextInt();
-                            System.out.print("\nDime la rareza de la moneda (1-10): ");
+                            if(precio<0){
+                                do{
+                                    System.out.print("\nEl precio debe ser un valor positivo.\nDime el precio del sello: ");
+                                    precio = scanner.nextInt();
+                                }while(precio<0);
+                            }
+
+                            System.out.print("\nDime la rareza del sello (1-10): ");
                             int rareza = scanner.nextInt();
-                            do {
-                                if(rareza < 1 || rareza > 10){
-                                    System.out.print("\nLa rareza debe estar entre 1 y 10. Dime la rareza de la moneda (1-10): ");
+                            if (rareza < 1 || rareza > 10){
+                                do {
+                                    System.out.print("\nLa rareza debe estar entre 1 y 10.\nDime la rareza del sello (1-10): ");
                                     rareza = scanner.nextInt();
-                                }
-                            } while (rareza < 1 || rareza > 10);
+                                } while (rareza < 1 || rareza > 10);
+                            }
+
+                            System.out.print("\nDime la altura del sello (en mm): ");
+                            int altura = scanner.nextInt();
+                            if(altura<=0){
+                                do{
+                                    System.out.print("\nLa altura debe ser un valor positivo.\nDime la altura del sello (en mm): ");
+                                    altura = scanner.nextInt();
+                                }while(altura<=0);
+                            }
+
+                            System.out.print("\nDime la anchura del sello (en mm): ");
+                            int anchura = scanner.nextInt();
+                            if(anchura<=0){
+                                do{
+                                    System.out.print("\nLa anchura debe ser un valor positivo.\nDime la anchura del sello (en mm): ");
+                                    anchura = scanner.nextInt();
+                                }while(anchura<=0);
+                            }
+
+                            System.out.print("\nQué imagen quieres ponerle al sello: ");
+                            String imagen = scanner.next();
+
+                            System.out.print("\nDime el estado de conservación del sello (M, MNH, VLH, F, VF, XF, AU, UNC): ");
+                            String estadoConservacionStr = scanner.next().toUpperCase();
+                            if(!estadoConservacionStr.equals("M") && !estadoConservacionStr.equals("MNH") && !estadoConservacionStr.equals("VLH") && !estadoConservacionStr.equals("F") && !estadoConservacionStr.equals("VF") && !estadoConservacionStr.equals("XF") && !estadoConservacionStr.equals("AU") && !estadoConservacionStr.equals("UNC")){
+                                do{
+                                    System.out.print("\nEl estado de conservación debe ser uno de los siguientes: M, MNH, VLH, F, VF, XF, AU, UNC.\nDime el estado de conservación del sello: ");
+                                    estadoConservacionStr = scanner.next().toUpperCase();
+                                } while (!estadoConservacionStr.equals("M") && !estadoConservacionStr.equals("MNH") && !estadoConservacionStr.equals("VLH") && !estadoConservacionStr.equals("F") && !estadoConservacionStr.equals("VF") && !estadoConservacionStr.equals("XF") && !estadoConservacionStr.equals("AU") && !estadoConservacionStr.equals("UNC"));
+                            }
+
+                            Sello sello = new Sello(pais, autoridadGobernante, unidadMonetaria, annus, valor, precio, rareza, altura, anchura, imagen, EnumEstadoConservacionSello.valueOf(estadoConservacionStr));
+                            Coleccion.AnadirSello(sello);
+
+                            // String pais, String autoridadGobernante, String unidadMonetaria, int annus, int valor, int precio, int rareza, int altura, int anchura, String imagen, EnumEstadoConservacionSello estadoConservacion
 
 
                         }catch(Exception e){

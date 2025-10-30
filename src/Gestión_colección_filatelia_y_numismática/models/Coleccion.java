@@ -3,20 +3,20 @@ package Gestión_colección_filatelia_y_numismática.models;
 import java.util.ArrayList;
 
 public class Coleccion {
-    private ArrayList<ElementoColeccionable> elementos;
+    private static ArrayList<ElementoColeccionable> elementos;
 
 
 
 
-    public void AñadirMonedaColeccion(Moneda moneda) {
+    public static void AnadirMoneda(Moneda moneda) {
         elementos.add(moneda);
     }
 
-    public void AñadirSelloColeccion(Sello sello) {
+    public static void AnadirSello(Sello sello) {
         elementos.add(sello);
     }
 
-    public void MostrarMonedasColeccion() {
+    public static void MostrarMonedasColeccion() {
         for (ElementoColeccionable elemento : elementos) {
             if (elemento instanceof Moneda) {
                 System.out.println(elemento.toString());
@@ -24,7 +24,7 @@ public class Coleccion {
         }
     }
 
-    public void MostrarSellosColeccion() {
+    public static void MostrarSellosColeccion() {
         for (ElementoColeccionable elemento : elementos) {
             if (elemento instanceof Sello) {
                 System.out.println(elemento.toString());
@@ -32,7 +32,7 @@ public class Coleccion {
         }
     }
 
-    public int ObtenerPrecioTotalColeccion(){
+    public static int ObtenerPrecioTotalColeccion(){
         int precioTotal = 0;
         for (ElementoColeccionable elemento : elementos) {
             precioTotal += elemento.getPrecio();
@@ -41,7 +41,7 @@ public class Coleccion {
 
     }
 
-    public int ObtenerRarezaMediaColeccion(){
+    public static int ObtenerRarezaMediaColeccion(){
         int rarezaTotal = 0;
         for (ElementoColeccionable elemento : elementos) {
             rarezaTotal += elemento.getRareza();
