@@ -207,6 +207,7 @@ public class Main {
                     } else if(respuesta == 3){
                         try{
                             Coleccion.MostrarMonedas();
+
                         }catch(Exception e){
                             System.out.println("\nError al mostrar las monedas: " + e.getMessage());
                             scanner.nextLine();
@@ -242,10 +243,10 @@ public class Main {
                         System.out.print("\nSaliendo...\nSe ha salido y cerrado el programa correctamente");
 
                     } else{
-                        System.out.println("\nOpción no válida. Debe elegir una opción del 0 al 6.");
+                        System.out.print("\nOpción no válida. Debe elegir una opción del 0 al 6.");
                     }
 
-                    System.out.println("Tenemos las siguientes opciones: ");
+                    System.out.println("\nTenemos las siguientes opciones: ");
                     System.out.println("1. Añadir una nueva moneda");
                     System.out.println("2. Añadir un nuevo sello");
                     System.out.println("3. Mostrar todas las monedas");
